@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* --- RESET BOX SIZING --- */
     *, *::before, *::after { box-sizing: border-box; }
 
     body {
@@ -32,138 +31,9 @@
 
     nav img { height: 50px; }
 
-    /* --- HERO SLIDER --- */
-    .hero {
-      height: 300px;
-      border-radius: 1rem;
-      overflow: hidden;
-      max-width: 100%;
-      margin: 0 auto;
-      position: relative;
-    }
-    .slider-track {
-      border-radius: 1rem;
-      display: flex;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.4s ease-in-out;
-    }
-    .slider-track img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.3);
-      z-index: 1;
-    }
-    .intro-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #fff;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      text-align: center;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-      white-space: nowrap;
-      z-index: 2;
-      padding: 0 1rem;
-    }
-    .hero-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2rem;
-      color: white;
-      background: rgba(0,0,0,0.3);
-      padding: 0.2rem 0.5rem;
-      cursor: pointer;
-      border-radius: 5px;
-      z-index: 3;
-      user-select: none;
-    }
-    .hero-arrow.left { left: 10px; }
-    .hero-arrow.right { right: 10px; }
-
-    /* Slider dots */
-    .slider-dots {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-      z-index: 5;
-    }
-    .slider-dots span {
-      width: 12px;
-      height: 12px;
-      background-color: rgba(255,255,255,0.6);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background-color 0.3s, transform 0.2s;
-    }
-    .slider-dots span.active {
-      background-color: #2F4880;
-      transform: scale(1.2);
-    }
-
-    /* --- SECTIONS --- */
-    .sections {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      padding: 1rem;
-    }
-    .section-button {
-      position: relative;
-      height: 180px;
-      border-radius: 1rem;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      touch-action: manipulation;
-      text-decoration: none;
-      color: inherit;
-    }
-    .section-button:hover, .section-button.touching {
-      transform: scale(1.03);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    }
-    .section-button img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(65%);
-    }
-    .section-button span {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #fff;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      text-align: center;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-      padding: 0 0.8rem;
-      width: 100%;
-    }
-
-    /* --- PÁGINAS INTERNAS --- */
     .page { display: none; padding: 1rem; }
     .page.active { display: block; }
 
-    /* --- FOOTER --- */
     footer {
       text-align: center;
       font-size: 0.8rem;
@@ -171,20 +41,8 @@
       padding: 1rem 0 1.5rem;
     }
 
-    /* --- RESPONSIVE --- */
-    @media (min-width: 600px) {
-      .hero { height: 500px; }
-      .intro-text { font-size: 2rem; }
-      .sections { grid-template-columns: 1fr 1fr 1fr; }
-      .section-button { height: 220px; }
-    }
-    @media (min-width: 1024px) {
-      .hero { height: 600px; }
-      .intro-text { font-size: 2.5rem; padding: 1.5rem 3rem; }
-      .section-button { height: 260px; }
-    }
+    /* --- MI SALUD --- */
 
-    /* --- NUEVO DISEÑO MI SALUD (tipo app) --- */
     .health-wrapper {
       display: flex;
       justify-content: center;
@@ -198,7 +56,24 @@
       border-radius: 2rem;
       padding: 1.8rem;
       box-shadow: 0 15px 40px rgba(47,72,128,0.15);
-      position: relative;
+    }
+
+    .area-btn {
+      display: block;
+      background: #2F4880;
+      color: white;
+      text-align: center;
+      padding: 0.95rem;
+      border-radius: 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s ease;
+      margin-bottom: 1.5rem;
+    }
+
+    .area-btn:hover {
+      background: #273963;
+      transform: translateY(-2px);
     }
 
     .health-header h3 {
@@ -224,19 +99,14 @@
       font-size: 3.5rem;
       font-weight: 700;
       color: #2F4880;
-      line-height: 1;
-    }
-
-    .air-quality {
-      margin-top: 0.6rem;
     }
 
     .quality-bar {
       height: 6px;
       border-radius: 4px;
       background: linear-gradient(90deg, #2F4880, #5dc1b9);
-      margin: 0.45rem auto 0.35rem;
-      width: 62%;
+      margin: 0.45rem auto;
+      width: 60%;
     }
 
     .air-quality span {
@@ -273,221 +143,98 @@
       color: #2F4880;
     }
 
-    .area-btn {
+    .more-link {
       display: block;
-      margin-top: 1.6rem;
-      background: #2F4880;
-      color: white;
+      margin-top: 1.5rem;
       text-align: center;
-      padding: 0.95rem;
-      border-radius: 1rem;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.2s ease;
+      font-size: 0.9rem;
+      color: #2F4880;
+      text-decoration: underline;
+      font-weight: 500;
     }
 
-    .area-btn:hover {
-      background: #273963;
-      transform: translateY(-2px);
+    .more-link:hover {
+      opacity: 0.7;
     }
+
   </style>
 </head>
 
 <body>
-  <nav id="navbar" title="Volver al inicio">
-    <img src="./vithas/logo.webp" alt="Logo Vithas" id="vithasLogo">
-  </nav>
 
-  <!-- HOME PAGE -->
-  <div id="homePage" class="page active">
-    <div class="hero" id="hero">
-      <div class="slider-track" id="sliderTrack">
-        <img src="./vithas/hospital1.webp" alt="Vithas 1">
-        <img src="./vithas/hospital2.webp" alt="Vithas 2">
-        <img src="./vithas/hospital3.webp" alt="Vithas 3">
-        <img src="./vithas/hospital4.jpeg" alt="Vithas 4">
-        <img src="./vithas/hospital5.jpg" alt="Vithas 5">
-      </div>
+<nav id="navbar">
+  <img src="./vithas/logo.webp" alt="Logo Vithas">
+</nav>
 
-      <div class="slider-dots" id="sliderDots"></div>
+<div id="homePage" class="page active">
+  <div onclick="navigateTo('miSaludPage')" style="padding:2rem; text-align:center; cursor:pointer;">
+    <h2>Ir a Mi Salud</h2>
+  </div>
+</div>
 
-      <div class="hero-arrow left" id="prevSlide">‹</div>
-      <div class="hero-arrow right" id="nextSlide">›</div>
+<div id="miSaludPage" class="page">
+  <div class="health-wrapper">
+    <div class="health-card">
 
-      <p class="intro-text">Vithas, tu salud privada</p>
-    </div>
-
-    <div class="sections">
-      <div class="section-button" onclick="navigateTo('miSaludPage')">
-        <img src="./vithas/misalud.webp" alt="Mi salud">
-        <span>Mi salud</span>
-      </div>
-
-      <a class="section-button" href="https://logopost.sopyapp.com/" data-external>
-        <img src="./ascires/virtual.jpg" alt="Agente IA">
-        <span>Agente IA</span>
+      <!-- BOTÓN ARRIBA -->
+      <a class="area-btn" href="https://areaprivada.vithas.es/login" target="_blank" rel="noopener noreferrer">
+        Acceder al Área Privada
       </a>
 
-      <a class="section-button" href="https://app.mappedin.com/editor/edit/69809df198097e000b9f1f5f/preview/initial" data-external>
-        <img src="./vithas/k.png" alt="Digital Wayfinding">
-        <span>Digital Wayfinding</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- MI SALUD PAGE -->
-  <div id="miSaludPage" class="page">
-    <div class="health-wrapper">
-      <div class="health-card">
-
-        <div class="health-header">
-          <h3>Información del espacio</h3>
-        </div>
-
-        <p class="health-text">
-          Bienvenido/a a la Sala de espera de pediatría del hospital 9 de Octubre,
-          relájate y disfruta con la experiencia de usuario que ofrecemos en Vithas.
-          <br><br>
-          Este es un espacio que respeta todas las medidas sanitarias y de calidad del aire para
-          que te sientas siempre comfortable.
-        </p>
-
-        <div class="main-metric">
-          <div class="temperature">22°</div>
-          <div class="air-quality">
-            <div class="quality-bar"></div>
-            <span>Excelente calidad de aire</span>
-          </div>
-        </div>
-
-        <div class="metrics-grid">
-          <div class="metric-card">
-            <span>Humedad</span>
-            <strong>47%</strong>
-          </div>
-
-          <div class="metric-card">
-            <span>CO₂</span>
-            <strong>457 ppm</strong>
-          </div>
-
-        </div>
-
-        <a class="area-btn" href="https://areaprivada.vithas.es/login" target="_blank" rel="noopener noreferrer">
-          Acceder al Área Privada
-        </a>
-
+      <div class="health-header">
+        <h3>Información del espacio</h3>
       </div>
+
+      <p class="health-text">
+        Bienvenido/a a la Sala de espera de pediatría del hospital 9 de Octubre,
+        relájate y disfruta con la experiencia de usuario que ofrecemos en Vithas.
+        <br><br>
+        Este es un espacio que respeta todas las medidas sanitarias y de calidad del aire para
+        que te sientas siempre comfortable.
+      </p>
+
+      <div class="main-metric">
+        <div class="temperature">22°</div>
+        <div class="air-quality">
+          <div class="quality-bar"></div>
+          <span>Excelente calidad de aire</span>
+        </div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <span>Humedad</span>
+          <strong>47%</strong>
+        </div>
+
+        <div class="metric-card">
+          <span>CO₂</span>
+          <strong>457 ppm</strong>
+        </div>
+      </div>
+
+      <!-- LINK SIMPLE ABAJO -->
+      <a class="more-link" 
+         href="https://nescloud.net/sensordata/public_panel/EuZIUd0hD7uGkAuAoZhSyWaFxuWeGzWk" 
+         target="_blank" 
+         rel="noopener noreferrer">
+         Ver más datos del espacio
+      </a>
+
     </div>
   </div>
+</div>
 
-  <footer>© 2026 Vithas</footer>
+<footer>© 2026 Vithas</footer>
 
-  <script>
-    // --- PAGES NAVIGATION ---
-    const pages = document.querySelectorAll('.page');
-    function navigateTo(id) {
-      pages.forEach(p => p.classList.remove('active'));
-      const el = document.getElementById(id);
-      if (el) el.classList.add('active');
+<script>
+const pages = document.querySelectorAll('.page');
+function navigateTo(id) {
+  pages.forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+document.getElementById('navbar').addEventListener('click', () => navigateTo('homePage'));
+</script>
 
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      history.pushState({ page: id }, "", "#" + id);
-    }
-
-    // --- NAVBAR CLICK: VOLVER A HOME ---
-    document.getElementById('navbar').addEventListener('click', () => navigateTo('homePage'));
-
-    // --- HERO SLIDER ---
-    const sliderTrack = document.getElementById("sliderTrack");
-    const slides = sliderTrack.children;
-    const totalSlides = slides.length;
-    let currentSlide = 0;
-
-    const sliderDots = document.getElementById("sliderDots");
-
-    // Crear dots dinámicamente
-    for (let i = 0; i < totalSlides; i++) {
-      const dot = document.createElement("span");
-      dot.dataset.index = i;
-      dot.addEventListener("click", () => {
-        currentSlide = i;
-        updateSlider();
-      });
-      sliderDots.appendChild(dot);
-    }
-
-    function updateDots() {
-      const dots = sliderDots.children;
-      for (let i = 0; i < dots.length; i++) {
-        dots[i].classList.toggle("active", i === currentSlide);
-      }
-    }
-
-    function updateSlider() {
-      sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-      updateDots();
-    }
-
-    // Activar inicialmente el primer dot
-    updateSlider();
-
-    document.getElementById("nextSlide").onclick = () => {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      updateSlider();
-    };
-
-    document.getElementById("prevSlide").onclick = () => {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      updateSlider();
-    };
-
-    // --- EXTERNAL LINKS ---
-    document.querySelectorAll('a[data-external]').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const url = link.getAttribute('href');
-        history.pushState({ external: true, externalUrl: url }, "", "#external");
-        window.location.href = url;
-      });
-    });
-
-    // --- HANDLE BACK/FORWARD ---
-    window.addEventListener('popstate', event => {
-      if (event.state) {
-        if (event.state.external) {
-          if (window.location.href.indexOf(event.state.externalUrl) === -1)
-            window.location.href = event.state.externalUrl;
-        } else if (event.state.page) {
-          pages.forEach(p => p.classList.remove('active'));
-          const el = document.getElementById(event.state.page);
-          if (el) el.classList.add('active');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      } else {
-        pages.forEach(p => p.classList.remove('active'));
-        document.getElementById('homePage').classList.add('active');
-        history.replaceState({ page:'homePage' }, "", "#homePage");
-      }
-    });
-
-    // --- PAGESHOW: fix back/forward cache ---
-    window.addEventListener('pageshow', event => {
-      if (event.persisted) {
-        if (!location.hash || location.hash === "#external") {
-          pages.forEach(p => p.classList.remove('active'));
-          document.getElementById('homePage').classList.add('active');
-          history.replaceState({ page:'homePage' }, "", "#homePage");
-        }
-      }
-    });
-
-    // --- HOVER EFFECT FOR TOUCH DEVICES ---
-    document.querySelectorAll('.section-button').forEach(btn => {
-      btn.addEventListener('touchstart', () => btn.classList.add('touching'));
-      btn.addEventListener('touchend', () => btn.classList.remove('touching'));
-      btn.addEventListener('touchcancel', () => btn.classList.remove('touching'));
-    });
-  </script>
 </body>
 </html>
