@@ -163,55 +163,6 @@
     .page { display: none; padding: 1rem; }
     .page.active { display: block; }
 
-    .card {
-      background: #fff;
-      border-radius: 1rem;
-      padding: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-
-    .link-box {
-      display: block;
-      background: #2F4880;
-      color: #fff;
-      padding: 0.9rem 1rem;
-      border-radius: 0.8rem;
-      text-decoration: none;
-      font-weight: 600;
-      text-align: center;
-      transition: background 0.2s;
-    }
-    .link-box:hover { background: #273963; }
-
-    .metrics {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.8rem;
-      margin-top: 1rem;
-    }
-    .metric {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.9rem 1rem;
-      border-radius: 0.8rem;
-      background: #f3f5fb;
-      border: 1px solid #e2e6f3;
-      font-weight: 500;
-    }
-    .metric small {
-      display: block;
-      font-weight: 400;
-      color: #666;
-      margin-top: 0.2rem;
-    }
-    .metric strong {
-      font-size: 1.1rem;
-      color: #2F4880;
-      margin-left: 1rem;
-      white-space: nowrap;
-    }
-
     /* --- FOOTER --- */
     footer {
       text-align: center;
@@ -226,20 +177,131 @@
       .intro-text { font-size: 2rem; }
       .sections { grid-template-columns: 1fr 1fr 1fr; }
       .section-button { height: 220px; }
-      .metrics { grid-template-columns: 1fr 1fr; }
     }
     @media (min-width: 1024px) {
       .hero { height: 600px; }
       .intro-text { font-size: 2.5rem; padding: 1.5rem 3rem; }
       .section-button { height: 260px; }
-      .metrics { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    /* --- NUEVO DISEÑO MI SALUD --- */
+    .health-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .health-card {
+      width: 100%;
+      max-width: 420px;
+      background: #ffffff;
+      border-radius: 2rem;
+      padding: 1.8rem;
+      box-shadow: 0 15px 40px rgba(47,72,128,0.15);
+      position: relative;
+    }
+
+    .health-header h2 {
+      margin: 0;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #7fa6d6;
+    }
+
+    .health-header h3 {
+      margin: 0.2rem 0 1rem 0;
+      font-size: 1.4rem;
+      font-family: 'Playfair Display', serif;
+      color: #2F4880;
+    }
+
+    .health-text {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .main-metric {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .temperature {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #2F4880;
+      line-height: 1;
+    }
+
+    .air-quality {
+      margin-top: 0.6rem;
+    }
+
+    .quality-bar {
+      height: 6px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #2F4880, #5dc1b9);
+      margin: 0.45rem auto 0.35rem;
+      width: 62%;
+    }
+
+    .air-quality span {
+      font-size: 0.8rem;
+      color: #2F4880;
+      font-weight: 500;
+    }
+
+    .metrics-grid {
+      margin-top: 1.6rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+
+    .metric-card {
+      background: #f3f6fc;
+      border-radius: 1rem;
+      padding: 0.9rem;
+      text-align: center;
+      border: 1px solid #e2e6f3;
+    }
+
+    .metric-card span {
+      display: block;
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    .metric-card strong {
+      display: block;
+      margin-top: 0.25rem;
+      font-size: 1.1rem;
+      color: #2F4880;
+    }
+
+    .area-btn {
+      display: block;
+      margin-top: 1.6rem;
+      background: #2F4880;
+      color: white;
+      text-align: center;
+      padding: 0.95rem;
+      border-radius: 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .area-btn:hover {
+      background: #273963;
+      transform: translateY(-2px);
     }
   </style>
 </head>
 
 <body>
   <nav id="navbar" title="Volver al inicio">
-    <!-- Cambia la ruta del logo si hace falta -->
     <img src="./vithas/logo.webp" alt="Logo Vithas" id="vithasLogo">
   </nav>
 
@@ -247,7 +309,6 @@
   <div id="homePage" class="page active">
     <div class="hero" id="hero">
       <div class="slider-track" id="sliderTrack">
-        <!-- Cambia las imágenes si hace falta -->
         <img src="./vithas/hospital1.webp" alt="Vithas 1">
         <img src="./vithas/hospital2.webp" alt="Vithas 2">
         <img src="./vithas/hospital3.webp" alt="Vithas 3">
@@ -281,62 +342,61 @@
     </div>
   </div>
 
- <!-- MI SALUD PAGE -->
-<div id="miSaludPage" class="page">
+  <!-- MI SALUD PAGE (NUEVA) -->
+  <div id="miSaludPage" class="page">
+    <div class="health-wrapper">
+      <div class="health-card">
 
-  <div class="health-wrapper">
+        <div class="health-header">
+          <h2>Sala de espera pediatría</h2>
+          <h3>Info del espacio</h3>
+        </div>
 
-    <div class="health-card">
+        <p class="health-text">
+          Bienvenido/a a la Sala de espera de pediatría del hospital 9 de Octubre.
+          Relájate y disfruta de la experiencia que ofrecemos en Vithas.
+          <br><br>
+          Este es un espacio que respeta todas las medidas sanitarias y de calidad del aire
+          para que te sientas siempre cómodo.
+        </p>
 
-      <div class="health-header">
-        <h2>Sala de espera pediatría</h2>
-        <h3>Info del espacio</h3>
+        <div class="main-metric">
+          <div class="temperature">22°</div>
+          <div class="air-quality">
+            <div class="quality-bar"></div>
+            <span>Excelente calidad de aire</span>
+          </div>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <span>Humedad</span>
+            <strong>47%</strong>
+          </div>
+
+          <div class="metric-card">
+            <span>CO₂</span>
+            <strong>457 ppm</strong>
+          </div>
+
+          <div class="metric-card">
+            <span>Ruido</span>
+            <strong>38 dB</strong>
+          </div>
+
+          <div class="metric-card">
+            <span>Temperatura</span>
+            <strong>22.5 ºC</strong>
+          </div>
+        </div>
+
+        <a class="area-btn" href="https://areaprivada.vithas.es/login" target="_blank" rel="noopener noreferrer">
+          Acceder al Área Privada
+        </a>
+
       </div>
-
-      <p class="health-text">
-        Bienvenido/a a la Sala de espera de pediatría del hospital 9 de Octubre. 
-        Relájate y disfruta de la experiencia que ofrecemos en Vithas.
-        <br><br>
-        Este es un espacio que respeta todas las medidas sanitarias y de calidad del aire 
-        para que te sientas siempre cómodo.
-      </p>
-
-      <div class="main-metric">
-        <div class="temperature">22°</div>
-        <div class="air-quality">
-          <div class="quality-bar"></div>
-          <span>Excelente calidad de aire</span>
-        </div>
-      </div>
-
-      <div class="metrics-grid">
-
-        <div class="metric-card">
-          <span>Humedad</span>
-          <strong>47%</strong>
-        </div>
-
-        <div class="metric-card">
-          <span>CO₂</span>
-          <strong>457 ppm</strong>
-        </div>
-
-        <div class="metric-card">
-          <span>Ruido</span>
-          <strong>38 dB</strong>
-        </div>
-
-      </div>
-
-      <a class="area-btn" href="https://areaprivada.vithas.es/login" target="_blank">
-        Acceder al Área Privada
-      </a>
-
     </div>
-
   </div>
-
-</div>
 
   <footer>© 2026 Vithas</footer>
 
