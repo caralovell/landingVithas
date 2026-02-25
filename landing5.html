@@ -274,22 +274,37 @@
     }
 
     .area-btn {
-      display: block;
-      margin-top: 1.6rem;
-      background: #2F4880;
-      color: white;
-      text-align: center;
-      padding: 0.95rem;
-      border-radius: 1rem;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.2s ease;
-    }
+  display: block;
+  margin-top: 0;          /* quitamos el margen superior */
+  margin-bottom: 2.2rem;  /* aumentamos separación con el título */
+  background: #2F4880;
+  color: white;
+  text-align: center;
+  padding: 0.95rem;
+  border-radius: 1rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
 
     .area-btn:hover {
       background: #273963;
       transform: translateY(-2px);
     }
+
+    .more-link {
+  display: block;
+  margin-top: 2.5rem;     /* más separación respecto a las métricas */
+  text-align: center;     /* centrado */
+  font-size: 0.95rem;
+  color: #2F4880;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.more-link:hover {
+  opacity: 0.7;
+}
   </style>
 </head>
 
